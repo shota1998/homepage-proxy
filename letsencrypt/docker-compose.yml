@@ -2,7 +2,8 @@ version: "3"
 
 services:
 
-  nginx:
+  letsencript-proxy:
+    container_name: 'letsencript-proxy'
     image: nginx:1.19.2-alpine
     ports:
       - 80:80
@@ -11,7 +12,8 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/www/html:/var/www/html
 
-  certbot:
+  letsencript-certbot:
+    container_name: 'letsencript-certbot'
     image: certbot/certbot:v1.7.0
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
